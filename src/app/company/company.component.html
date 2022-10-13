@@ -1,2 +1,8 @@
-<app-company-list></app-company-list>
-<router-outlet></router-outlet>
+<div class="d-flex h-100">
+    <div class=" line d-flex h-100 border border-dark">
+        <app-company-list [companyList]="companies"></app-company-list>
+    </div>
+    <div class="h-100 w-100 borer border-dark">
+        <router-outlet></router-outlet>
+    </div>
+</div>
