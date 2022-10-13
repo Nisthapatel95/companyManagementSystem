@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Company } from '../model/company.model';
 
 @Component({
   selector: 'app-company-list',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyListComponent implements OnInit {
 
-  constructor() { }
+  @Input() companyList: Company[]
+
+  constructor() { this.companyList = [] }
 
   ngOnInit(): void {
   }
-
 }
