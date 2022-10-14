@@ -1,14 +1,14 @@
+
+
 <div class="h-100 d-glex flex-column">
   <div class="m-2">
-    <div class="d-flex justify-content-betwwwm m-2">
+    <div class="d-flex justify-content-between m-2">
       <div class="fs-2"> Company</div>
     </div>
-    <div class="w-100">
+    <div class="w-100 mb-3">
       <input type="text " placeholder="Search" class="w-100 p-2 border-dark">
     </div>
-
-    <li class="" *ngFor="let company of companyList">
-      {{company.name}}
-
+      <li class="list-group-item d-flex justify-content-between align-items-center w-100 border-0 p-2" *ngFor="let company of companyList">{{company.name}} <i class="bi bi-pencil-square"></i></li>   
+    
   </div>
 </div>
