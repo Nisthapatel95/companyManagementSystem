@@ -1,0 +1,13 @@
+
+
+<h4 class="p-3"> Add Company</h4>
+<form class="container p-2 mt-1 border" [formGroup]="companyForm" (ngSubmit)="saveCompany()">
+    <div class="mb-1 p-1">        
+        <input class="form-control" id="name" formControlName="name" placeholder="Company Name">        
+    </div>
+    <div class="mb-1 p-1">        
+        <input class="form-control" id="description" formControlName="description" placeholder="Company Description">        
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+    
+</form>
