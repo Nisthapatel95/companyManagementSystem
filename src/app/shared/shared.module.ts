@@ -10,6 +10,9 @@ import { CompanyLogoPipe } from './pipe/company-logo.pipe';
   ],
   imports: [
     CommonModule
+  ],
+  exports:[
+     CompanyLogoPipe
   ]
 })
 export class SharedModule { }
