@@ -14,6 +14,12 @@ export class CompanyComponent implements OnInit {
   constructor(private companyService: CompanyService) { this.companies = [] }
 
   ngOnInit(): void {
+    this.companyService.companyDetails.subscribe((data)=>{
+      if(data)
+      {
+        this.getCompanyList();
+      }
+    })
     this.getCompanyList();
   }
 
