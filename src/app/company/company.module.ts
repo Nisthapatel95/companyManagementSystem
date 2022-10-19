@@ -8,6 +8,7 @@ import { CompanyListComponent } from './company-list/company-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CompanyLogoPipe } from '../shared/pipe/company-logo.pipe';
 import { SharedModule } from '../shared/shared.module';
+import { DataCommunicationService } from './Service/data-communication.service';
 
 
 @NgModule({
@@ -24,6 +25,9 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     SharedModule
   
+  ],
+  providers:[
+    DataCommunicationService
   ]
 })
 export class CompanyModule { }

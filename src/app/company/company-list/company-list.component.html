@@ -1,17 +1,22 @@
-
-
 <div class="h-100 d-glex flex-column">
   <div class="m-2">
     <div class="d-flex justify-content-between m-2">
-      <div class="fs-2"> Company </div><i class="bi bi-plus-circle fs-2"></i>
+      <div class="fs-2"> Company </div><i class="bi bi-plus-circle fs-2" (click)="onAddCompany()"></i>
     </div>
     <div class="w-100 mb-3">
-      <input type="text " placeholder="Search" class="w-100 p-2 border-dark">
+      <!-- <input type="text " placeholder="Search" class="w-100 p-2 border-dark"> -->
+      <input type="search" class="form-control" placeholder="Search" [(ngModel)]="searchInput">
     </div>
-    
-      <li class="list-group-item d-flex justify-content-between align-items-center w-100  p-2  border border-dark" *ngFor="let company of companyList">
-        <span  class=" border border-dark rounded-circle fs-3">{{company.name |companyLogo}} </span>
-        <span>{{ company.name}}</span> <i class="bi bi-x-circle fs-3"></i></li>   
-    
+
+    <ul class="list-group" *ngIf="companyList | search:searchInput as filteredData">
+      <li class="list-group-item d-flex align-items-center" *ngFor="let company of filteredData">
+      <li class="list-group-item d-flex justify-content-between align-items-center w-100  p-2  border border-dark"
+        *ngFor="let company of companyList" (click)="onEditCompany(company)">
+        <span class=" border border-dark rounded-circle fs-3">{{company.name |companyLogo}} </span>
+
+        <span>{{ company.name}}</span> <i class="bi bi-x-circle fs-3" (click)="onDeleteCompany(company.id)"></i>
+      </li>
+      <div *ngIf="filteredData.length == 0" class="text-center text-danger">Data Not Found</div>
+    </ul>
   </div>
 </div>

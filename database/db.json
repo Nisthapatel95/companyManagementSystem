@@ -1,17 +1,21 @@
 {
-    "company":[
-        {
-            "id":1,
-            "name":"1Rivet "
-        },
-        {
-            "id":2,
-            "name":"SRK"
-        },
-        {
-            "id":3,
-            "name":"ATUL"
-        }
-        
-    ]
+  "company": [
+    {
+      "id": 2,
+      "name": "SRK",
+      "description": "IT Company",
+       "Tags":"abc",
+       "companyLogo":"xc"
+ 
+    },
+    {
+      "id": 3,
+      "name": "ATUL",
+      "description": "IT Company",
+      "Tags":"abc",
+      "companyLogo":"xc"
+
+
+    }
+  ]
 }

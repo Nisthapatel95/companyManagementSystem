@@ -12,10 +12,21 @@ const routes: Routes = [
       pathMatch: 'full',
       redirectTo: 'add'
     },
-     {
-      path: 'add',
-      component:CompanyFormComponent
-    }]
+    //  {
+    //   path: 'add',
+    //   component:CompanyFormComponent
+    // }
+    {
+      path:'add',
+      component:CompanyFormComponent,
+      
+    },
+    {
+      path:'edit/:company_id',
+      component:CompanyFormComponent,
+     
+    }
+  ]
 
   }
 
