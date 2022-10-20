@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CompanyLogoPipe } from '../shared/pipe/company-logo.pipe';
 import { SharedModule } from '../shared/shared.module';
 import { DataCommunicationService } from './Service/data-communication.service';
+import { DatatranferResolver } from './datatranfer.resolver';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { DataCommunicationService } from './Service/data-communication.service';
   
   ],
   providers:[
-    DataCommunicationService
+    DatatranferResolver
   ]
+ 
 })
 export class CompanyModule { }
