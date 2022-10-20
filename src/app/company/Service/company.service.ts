@@ -9,6 +9,9 @@ import { Company } from '../model/company.model';
 })
 
 export class CompanyService {
+  // deleteCompanyDetails(companyId: number) {
+  //   throw new Error('Method not implemented.');
+  // }
 
   baseUrl: string = 'http://localhost:3000';
 
@@ -29,11 +32,10 @@ export class CompanyService {
   }
 
   getCompanyById(id: number): Observable<Company> {
-    // debugger
+   
     return this.http.get<Company>(`${this.baseUrl}/company/${id}`);
   }
 
-  //subject
 
   sendCompanyId(id:number){
     this.selectedId.next(id);
@@ -52,5 +54,17 @@ export class CompanyService {
     return this.companyDetails.asObservable()
   }
 
+  addCompanyDetails(company:Company):Observable<Company>{
+    const url = `${this.baseUrl}/company`;
+    return this.http.post<Company>(url,company);
+  }
+  getCompanyDetails(): Observable<Company[]>{
+    const url = `${this.baseUrl}/company`;
+    return this.http.get<Company[]>(url);
+  }
+  deleteCompanyDetails(company_id:number):Observable<Company>{
+    const url = `${this.baseUrl}/company/${company_id}`;
+    return this.http.delete<Company>(url);
+  }
 
 }

@@ -1,20 +1,22 @@
-
-
 <h4 class="p-3"> Add Company</h4>
 <form class="container p-2 mt-1  " [formGroup]="companyForm" (ngSubmit)="saveCompany()">
-    <div class="mb-1 p-1">        
-        <input class="form-control border border-dark" id="name" formControlName="name" placeholder="Company Name">        
+    <div class="mb-1 p-1">
+        <input class="form-control border border-dark" id="name" formControlName="name" placeholder="name">
     </div>
-    <div class="mb-1 p-1">        
-        <input class="form-control border border-dark" id="description" formControlName="description" placeholder="Company Description">        
+    <div class="mb-1 p-1">
+        <input class="form-control border border-dark" id="description" formControlName="description"
+            placeholder="Company Description">
     </div>
-    <div class="mb-1 p-1">        
-        <input class="form-control border border-dark" id="description" formControlName="description" placeholder="Select Tags">        
+    <div class="mb-1 p-1">
+        <input class="form-control border border-dark" id="Tage" formControlName="Tags"
+            placeholder="Select Tags">
     </div>
-     <div class="mb-1 p-1">        
-        <input class="form-control border border-dark" id="description" formControlName="description" placeholder="Select Logo">        
+    <div class="mb-1 p-1">
+        <input class="form-control border border-dark" id="Logo" formControlName="companyLogo"
+            placeholder="Select Logo">
     </div>
     <div class="d-flex justify-content-end">
-    <button type="submit" class="btn btn-success ms-2 ">Save</button>
-    <button type="button" class="btn btn-success ms-2" (click)="resetForm()">Reset</button>
-</div>
+        <button type="submit" class="btn btn-success ms-2 ">Save</button>
+        <button type="button" class="btn btn-success ms-2" (click)="resetForm()">Reset</button>
+    </div>
+</form>
