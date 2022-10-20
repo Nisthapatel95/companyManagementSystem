@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataCommunicationService } from 'src/app/company/Service/data-communication.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+ public companyName: string;
+  constructor( private dataCommunicationService:DataCommunicationService) { }
 
   ngOnInit(): void {
+    this.dataCommunicationService.BreadCrumbData.subscribe((res:string)=>{
+     console.log(this.companyName);
+     
+      this.companyName = res;
+    })
+  }
   }
 
-}
+

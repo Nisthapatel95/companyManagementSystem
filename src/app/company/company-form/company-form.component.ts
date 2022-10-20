@@ -21,20 +21,22 @@ export class CompanyFormComponent implements OnInit {
   companyToEdit: Company;
   public companyId: string;
   isSubmitted: boolean;
+  public company_name : string;
+  public title:string;
 
 
 
-  @Input() set companyEdit(value: Company) {
-    if (value) {
-      this.companyToEdit = value;
-      this.companyForm.patchValue(this.companyToEdit)
-    }
-  }
-  @Input() set resetFormValue(value: boolean) {
-    if (value) {
-      this.companyForm.reset()
-    }
-  }
+  // @Input() set companyEdit(value: Company) {
+  //   if (value) {
+  //     this.companyToEdit = value;
+  //     this.companyForm.patchValue(this.companyToEdit)
+  //   }
+  // }
+  // @Input() set resetFormValue(value: boolean) {
+  //   if (value) {
+  //     this.companyForm.reset()
+  //   }
+  // }
 
   /**
    * 
@@ -44,14 +46,15 @@ export class CompanyFormComponent implements OnInit {
    */
   constructor(private fb: FormBuilder, private companyService: CompanyService, private router: Router, private activatedRoute: ActivatedRoute, private datacommunication: DataCommunicationService) {
     this.companyId = "";
-    this.activatedRoute.params.subscribe((params) => {
-      this.companyId = params['company_id'];
-      if (this.companyId) {
-        this.getCompanyDetails();
-      }
-    })
+    // this.activatedRoute.params.subscribe((params) => {
+    //   this.companyId = params['company_id'];
+    //   if (this.companyId) {
+    //     this.getCompanyDetails();
+    //   }
+    // })
 
   }
+
 
 
   ngOnInit(): void {
@@ -62,11 +65,21 @@ export class CompanyFormComponent implements OnInit {
       Tags: ['', Validators.required],
       companyLogo: ['', Validators.required]
     });
-    this.companyService.getcompanyDetails().subscribe((res) => {
-      if (res) {
-        this.companyForm.patchValue(res)
-      }
+    // this.companyService.getcompanyDetails().subscribe((res) => {
+    //   if (res) {
+    //     this.companyForm.patchValue(res)
+    //   }
+    // })
+
+     this.activatedRoute.data.subscribe((data) => {
+      this.companyForm.patchValue(data['company']);
+      this.company_name = data['company']?.name;
+      this.companyId = data['company']?.id;
+      console.log(this.companyId);
+      
+      this.datacommunication.getcompanyData(this.company_name);
     })
+    this.title = this.companyId ? "Edit" : "Add";
   }
 
   saveCompany() {

@@ -41,8 +41,9 @@ export class CompanyService {
     this.selectedId.next(id);
   }
 
-  getCompanyId(): Observable<number>{
-    return this.selectedId.asObservable()
+  getCompanyId(company_id:number): Observable<Company>{
+    const url = `${this.baseUrl}/company/${company_id}`;
+    return this.http.get<Company>(url);
   }
 
   //for details subhject

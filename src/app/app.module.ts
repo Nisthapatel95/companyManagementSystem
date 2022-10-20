@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DataCommunicationService } from './company/Service/data-communication.service';
 import { CoreModule } from './core/core.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
@@ -18,7 +19,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     CoreModule,
     HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [DataCommunicationService],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

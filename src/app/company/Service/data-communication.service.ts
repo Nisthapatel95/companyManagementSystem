@@ -13,10 +13,16 @@ export class DataCommunicationService {
 
   constructor() {
     this.CommunicationData = new Subject();
+    this.BreadCrumbData = new Subject();
     this.CommunicationData$ = this.CommunicationData.asObservable();
   }
 
   getData(company: Company) {
     this.CommunicationData.next(company);
   }
+
+  getcompanyData(companyname: string){
+    this.BreadCrumbData.next(companyname);
+  }
+  
 }
