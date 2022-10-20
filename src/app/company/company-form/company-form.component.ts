@@ -1,12 +1,7 @@
 
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-<<<<<<< HEAD
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-=======
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
->>>>>>> 47d9c789ba6aff9f4f6857e40d980f6d1071dac4
 import { Company } from '../model/company.model';
 import { CompanyService } from '../Service/company.service';
 import { DataCommunicationService } from '../Service/data-communication.service';
@@ -47,15 +42,16 @@ export class CompanyFormComponent implements OnInit {
    * @param companyService 
    * @param router 
    */
-  constructor(private fb: FormBuilder, private companyService: CompanyService, private router: Router ,private activatedRoute:ActivatedRoute, private datacommunication: DataCommunicationService) {
+  constructor(private fb: FormBuilder, private companyService: CompanyService, private router: Router, private activatedRoute: ActivatedRoute, private datacommunication: DataCommunicationService) {
     this.companyId = "";
     this.activatedRoute.params.subscribe((params) => {
       this.companyId = params['company_id'];
       if (this.companyId) {
         this.getCompanyDetails();
-      }})
-    
-   }
+      }
+    })
+
+  }
 
 
   ngOnInit(): void {
@@ -63,8 +59,8 @@ export class CompanyFormComponent implements OnInit {
       id: [null],
       name: [null, [Validators.required, Validators.minLength(1)]],
       description: ['', Validators.required],
-        Tags: ['', Validators.required],
-        companyLogo: ['', Validators.required]
+      Tags: ['', Validators.required],
+      companyLogo: ['', Validators.required]
     });
     this.companyService.getcompanyDetails().subscribe((res) => {
       if (res) {
@@ -97,7 +93,7 @@ export class CompanyFormComponent implements OnInit {
     return this.companyForm.controls
   }
 
-  
+
 
   resetForm() {
     this.companyForm.reset();
@@ -125,19 +121,15 @@ export class CompanyFormComponent implements OnInit {
 
   addcompany() {
     this.companyService.addCompany(this.companyForm.value).subscribe((res: Company) => {
-<<<<<<< HEAD
-      this.companyService.sendcompanyDetails(res)
-    })
-  }
-=======
+
       this.datacommunication.getData(res)
     })
   }
   getCompanyDetails() {
-    this.companyService.getCompanyById(Number(this.companyId )).subscribe((data: Company) => {
+    this.companyService.getCompanyById(Number(this.companyId)).subscribe((data: Company) => {
       this.companyForm.patchValue(data);
       // this.name = data.name;
     })
-}
->>>>>>> 47d9c789ba6aff9f4f6857e40d980f6d1071dac4
+  }
+
 }

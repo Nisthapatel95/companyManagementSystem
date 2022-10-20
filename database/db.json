@@ -4,18 +4,22 @@
       "id": 2,
       "name": "SRK",
       "description": "IT Company",
-       "Tags":"abc",
-       "companyLogo":"xc"
- 
+      "Tags": "abc",
+      "companyLogo": "xc"
     },
     {
       "id": 3,
       "name": "ATUL",
       "description": "IT Company",
-      "Tags":"abc",
-      "companyLogo":"xc"
-
-
+      "Tags": "abc",
+      "companyLogo": "xc"
+    },
+    {
+      "id": 4,
+      "name": "1Rivet",
+      "description": "IT company",
+      "Tags": "bnv",
+      "companyLogo": "ghjgf"
     }
   ]
 }

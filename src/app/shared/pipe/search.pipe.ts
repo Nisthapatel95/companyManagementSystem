@@ -1,20 +1,6 @@
-// import { Pipe, PipeTransform } from '@angular/core';
-
-// @Pipe({
-//   name: 'search'
-// })
-// export class SearchPipe implements PipeTransform {
-
-//   transform(value: unknown, ...args: unknown[]): unknown {
-//     return null;
-//   }
-
-// }
 import { Pipe, PipeTransform } from '@angular/core';
-
 import { Company } from 'src/app/company/model/company.model';
 
-import { DataCommunicationService } from 'src/app/company/Service/data-communication.service';
 
 @Pipe({
   name: 'search'

@@ -9,6 +9,7 @@ export class DataCommunicationService {
 
   public CommunicationData$: Observable<Company>;
   private CommunicationData: Subject<Company>;
+  public BreadCrumbData: Subject<string>;
 
   constructor() {
     this.CommunicationData = new Subject();
